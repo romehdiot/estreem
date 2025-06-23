@@ -1,0 +1,2053 @@
+{
+  "Objects": [
+    {
+      "object": "Acceptor",
+      "fields": [
+        {
+          "field": "id",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Merchant.merchantIdentification.merchantId",
+          "Commentaire": "Codeset PRMI",
+          "type": {
+            "Max10NumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a numeric string with a minlength of 1 and maxlength of 10 digits.",
+                "type": "string",
+                "pattern": "[0-9]{1,10}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "subId",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "SponsoredMerchant.finalMerchantId",
+          "Commentaire": "sub merchant: payment facilitator (sponsored merchant)",
+          "type": {
+            "Exact15Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "15 alphanumeric  and special characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "terminalId",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Terminal.terminalID",
+          "Commentaire": "",
+          "type": {
+            "Exact8Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "8 alphanumeric  and special characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Pricing Rule Code",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "Lot B RFP",
+          "not_found_in_types": true
+        },
+        {
+          "field": "merchantCategoryCode",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Merchant.merchantCategoryCode",
+          "Commentaire": "ISO 18245 MCC code ; transactionDetails.temp_merchantCategoryCode",
+          "not_found_in_types": true
+        },
+        {
+          "field": "name",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Merchant.merchantIdentification.merchantName",
+          "Commentaire": "caution : GDPR",
+          "type": {
+            "Max40Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 40 characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "city",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Merchant.postalAddress.townName",
+          "Commentaire": "Verify why the city is mandatory",
+          "type": {
+            "Max70Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 70 digits.",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "country",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Merchant.postalAddress.countryCode",
+          "Commentaire": "",
+          "type": {
+            "ISO3NumericCountryCode": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Code to identify a country, a dependency, or another area of particular geopolitical interest (ISO 3166, Numeric-3 code)",
+                "type": "string",
+                "pattern": "[0-9]{3,3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "identifier",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "Not available ",
+          "not_found_in_types": true
+        },
+        {
+          "field": "referenceNumber",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "Send ISO example",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Acquirer",
+      "fields": [
+        {
+          "field": "Empty",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "acquiringInstitutionId",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Acquirer.acquirerInstitutionId",
+          "Commentaire": "",
+          "type": {
+            "Max35Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 35 characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "acquirerBin",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Acquirer.acquirerId",
+          "Commentaire": "",
+          "type": {
+            "Max11NumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a numeric string with a minlength of 1 and maxlength of 11 digits.",
+                "type": "string",
+                "pattern": "[0-9]{1,11}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "country",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Acquirer.postealAddress.countryCode",
+          "Commentaire": "",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Card",
+      "fields": [
+        {
+          "field": "Issuer BIN",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "card.extendedBIN",
+          "Commentaire": "To be created, mandatory",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Chargeback",
+      "fields": [
+        {
+          "field": "id",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Chargeback.chargebackId",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "originalId",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "OriginalTransactionData.transactionReference",
+          "Commentaire": "There is also OriginalTransactionData.originalUniqueIdentifier",
+          "type": {
+            "Max35Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 35 characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Cardholderdisputedate",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "IssuingDate",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Amount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "reasonCode",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Representment",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RepresentmentDate",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RepresentmentReasonCode",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Chargeback.representmentReasonCode",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RepresentmentAmount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "ArbitrationDate",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "ArbitrationReasonCode",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "ArbitrationAmount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Clearing",
+      "fields": [
+        {
+          "field": "idPreClearing",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionIdentifgication.stampingReference",
+          "Commentaire": "Not available yet, due to subfield issue depending on Mastercard asset mainframe",
+          "not_found_in_types": true
+        },
+        {
+          "field": "reconciliationFlag",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "settlement amount",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Acquirer.settlementCurrency",
+          "Commentaire": "Must exist",
+          "not_found_in_types": true
+        },
+        {
+          "field": "amount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "dcc.isDcc",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Dico not complete",
+          "Commentaire": "Cardholder.billingCurrency, Field 54 - Type 42 PurchaseFeeAmount (= DCC margin)",
+          "not_found_in_types": true
+        },
+        {
+          "field": "dcc.dccCurrency",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.billingAmount.CurrencyCode",
+          "Commentaire": "This is the place where the DCC currency is set for DCC at POI",
+          "not_found_in_types": true
+        },
+        {
+          "field": "dcc.dccMarkup",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.feesAmount.amount, TransactionDetails feeAmountPayable.amount",
+          "Commentaire": "The fee payable amount (in cardholder billing currency) in CBAE Filed 54 Type 0042, is not reflected in the DICO",
+          "type": {
+            "ImpliedCurrencyAndAmount": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.",
+                "type": "string",
+                "pattern": "\\-?[0-9]{1,18}(\\.?[0-9]{0,5})?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        }
+      ]
+    },
+    {
+      "object": "Scheme fee",
+      "fields": [
+        {
+          "field": "SchemeFeeCommissionAmount",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "External Scheme fees Rule code",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "schemeFees.SchemeFeesDetails[x].billingID",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Scheme fees sum amount ",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "_",
+          "Commentaire": "SchemeFees.totalAmount",
+          "not_found_in_types": true
+        },
+        {
+          "field": "schemeFeesDetailTotalAmount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "schemeFeesDetailList",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "SchemeFeeTypeAmount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "SchemeFeeTypeBillingId",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "SchemeFeeRechargeable",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "schemeFeesNature",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "schemeFeesLabel",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": " schemeFeesGroup",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": " schemeFeesDetail",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RegionFeeTypeSchemeFeeMode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RegionFeeTypeSchemeFeeRateOrAmount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RegionFeeTypeSchemeRegionApplied",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "RegionFeeTypeSchemeRegionAppliedRateOrAmount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TieredFeeTypeSchemeFeeMode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TieredFeeTypeVolume",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TieredFeeTypeRangeApplied",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TieredFeeTypeRateOrAmount",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Interchange",
+      "fields": [
+        {
+          "field": "interchangeType",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "TransactionContext.Traceability.blob",
+          "Commentaire": "This is P2S which must determine the IC",
+          "not_found_in_types": true
+        },
+        {
+          "field": "External Interchange Rule Code",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Interchange.ICSCode",
+          "Commentaire": "Computed IC, to be verified if this is the interchange code (Effyis 12/05 : Yes is this is the interchange code based in the scheme documentation )",
+          "type": {
+            "Max70Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 70 digits.",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Interchange amount ",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Interchange.amount.amount",
+          "Commentaire": "",
+          "type": {
+            "ImpliedCurrencyAndAmount": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.",
+                "type": "string",
+                "pattern": "\\-?[0-9]{1,18}(\\.?[0-9]{0,5})?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Bilateral Agreement ID",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "From Referentiel if exist",
+          "Commentaire": "schemeFees.SchemeFeesDetails[x].bilateralAgreementID",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "paymentInstrument",
+      "fields": [
+        {
+          "field": "paymentInstrumentId",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "PANID",
+          "Commentaire": "Not available apart from internal reference PAN ID",
+          "not_found_in_types": true
+        },
+        {
+          "field": "maskedPan",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Card.PrimarylAccountNumber4D",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "sequence",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Card.cardSequenceNumber",
+          "Commentaire": "",
+          "type": {
+            "Min2Max3NumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a numeric string with a minlength of 2 digits and a maxlength of 3 digits.",
+                "type": "string",
+                "pattern": "[0-9]{2,3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "expiryDate",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Card.expiryDate",
+          "Commentaire": "",
+          "type": {
+            "ISOYearMonth": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Month within a particular calendar year represented by YYYY-MM (ISO 8601).",
+                "type": "string",
+                "pattern": "([0-9]{4})-(1[0-2]|0[1-9])"
+              }
+            }
+          },
+          "not_found_in_types": false
+        }
+      ]
+    },
+    {
+      "object": "Reversals",
+      "fields": [
+        {
+          "field": "datetime",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "For a full reversal, no effect the transaction is not captured. For a partial reversal date is the date indicated in TransactionIdentification.localDateTime",
+          "not_found_in_types": true
+        },
+        {
+          "field": "type",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.replacementAmount <> 0",
+          "Commentaire": "RG for EFFYIS : For partial reversal this field must be > 0",
+          "not_found_in_types": true
+        },
+        {
+          "field": "reason",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.messageReasonCode [ 4000-4204]",
+          "Commentaire": "See Message Reason Code Tab",
+          "not_found_in_types": true
+        },
+        {
+          "field": "amount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.replacementAmount",
+          "Commentaire": "See comment above",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Settlement",
+      "fields": [
+        {
+          "field": "SettlementNetwork",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Acquirer.brandSwitchPreference",
+          "Commentaire": "This is the same as clearing network. Neverthemless, this P2S to determine the settlement service and the scheme ",
+          "not_found_in_types": true
+        },
+        {
+          "field": "SettlementId",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not available on the clearing chain.",
+          "Commentaire": "This won't be available, since the we are before the clearing. After clearing input file has been submitted, there might be RTI, subject of the WS Tuesday the 22nd of April",
+          "not_found_in_types": true
+        },
+        {
+          "field": "SettlementDate",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "TransactionDetails.settementDate",
+          "Commentaire": "Computed QUALIF",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "Transaction",
+      "fields": [
+        {
+          "field": "type",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.transactionNature",
+          "Commentaire": "Verify code set completness, 1st version until Phase 4 = Payment but withdrawal and manual cash in scope in the RFP",
+          "type": {
+            "TransactionNatureCodeset": {
+              "details": {
+                "isCodeSet": true,
+                "codeset": [
+                  {
+                    "data": "PUGS",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "ATMW",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "QUCA",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CACP",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MACA",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CRED",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "QCAR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "AVFI",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CARE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "FTDE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "FTCR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "FTWC",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "AICE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "WCDI",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "VMAA",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "FIMA",
+                    "format": "Exact4Text"
+                  }
+                ]
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionId",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionExternalId",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionIdentification.stampingReference",
+          "Commentaire": "",
+          "type": {
+            "Exact16AlphaNumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "16 alphanumeric characters",
+                "type": "string",
+                "pattern": "[0-9A-Za-z]{16}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionCountryCode",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Terminal.countryCode",
+          "Commentaire": "",
+          "type": {
+            "ISO3NumericCountryCode": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Code to identify a country, a dependency, or another area of particular geopolitical interest (ISO 3166, Numeric-3 code)",
+                "type": "string",
+                "pattern": "[0-9]{3,3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionStatus",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionLifeCycle",
+          "Commentaire": "Not existing. What does it relates to: Recurring, pre-auth ?",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionEventType",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionAmount",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.totalAmount.amount",
+          "Commentaire": "",
+          "type": {
+            "ImpliedCurrencyAndAmount": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.",
+                "type": "string",
+                "pattern": "\\-?[0-9]{1,18}(\\.?[0-9]{0,5})?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "schemeProgramId",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "TransactionDetails.VisaB2BProgram, Card.mastercardProgram",
+          "Commentaire": "In response of Mastercard or Visa gateway if the transaction merchant or acquirer belongs to a ICS program. If this is available in authorization, it must be reflected in this P2S field",
+          "type": {
+            "Exact3AlphaNumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "3 alphanumeric characters",
+                "type": "string",
+                "pattern": "[0-9A-Za-z]{3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "currency",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.totalAmount.currency",
+          "Commentaire": "",
+          "type": {
+            "ISO3NumericCurrencyCode": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Code to identify the Currency (ISO 4217)",
+                "type": "string",
+                "pattern": "[0-9]{3,3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionDatetime",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionCreationDatetime",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionCategoryCode",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "IA input for matching MCBS with Cost Code",
+          "not_found_in_types": true
+        },
+        {
+          "field": "feeRuleTrigger",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Internal Interchange Rule Code",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Internal Scheme fees Rule code",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Fee Rule Trigger(s)",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "TransactionContext.Traceability.blob",
+          "Commentaire": "This is P2S to determine the logic ; no prequalification on Estreem side",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionAdditionalAMount",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "TransactionRequest",
+      "fields": [
+        {
+          "field": "partialFlag",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "ParialAuthorizationAllowed is existing, see whether it will be included in the DICO",
+          "not_found_in_types": true
+        },
+        {
+          "field": "xPayWalletAuthMethod",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "OriginalTransactionData.electronicCommerceAuthentication = 21 if TAVV\nVerification.cardholderVerificationMethod (CB for 3rd party wallet if valued)",
+          "Commentaire": "Transformation P2S needed?",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionRequestDatetime",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionIdentification.localDateTime",
+          "Commentaire": "At the point of sale fields 12 13",
+          "type": {
+            "ISODateTime": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "The dateTime is specified in the following form <YYYY-MM-DDThh:mm:ss>",
+                "type": "string",
+                "pattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionRequestBillingAmount",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.billingAmount.amount",
+          "Commentaire": "",
+          "type": {
+            "ImpliedCurrencyAndAmount": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.",
+                "type": "string",
+                "pattern": "\\-?[0-9]{1,18}(\\.?[0-9]{0,5})?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionRequestBillingCurrency",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.billingAmount.currency",
+          "Commentaire": "",
+          "type": {
+            "ISO3NumericCurrencyCode": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Code to identify the Currency (ISO 4217)",
+                "type": "string",
+                "pattern": "[0-9]{3,3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionRequestStan",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionIdentifcation.transactionReference",
+          "Commentaire": "Field 11",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionRequestRetrievalReferenceNumber",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.saleReference",
+          "Commentaire": "",
+          "type": {
+            "Max35Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minlength of 1 and maxlength of 35 characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionRequestAmount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "Not existing. As FR is DMS with deferred capture, the operation captured only contains Total Amount, not original requested amount",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionRequestCurrency",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionRequestTransmissionDatetime",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionIdentification.transmissionGmtDataTime",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionRequestBillingRate",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.billingAmount.exchangeRate",
+          "Commentaire": "",
+          "type": {
+            "Base25OneRate": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Rate expressed as a decimal",
+                "type": "string",
+                "pattern": "[0-9]{1,25}(\\.?[0-9]{0,13})?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionRequestScheme",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.cardBrandApplied",
+          "Commentaire": "merchantBrandDefault ",
+          "type": {
+            "BrandCodeset": {
+              "details": {
+                "isCodeSet": true,
+                "codeset": [
+                  {
+                    "data": "CBFR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "VISA",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MACD",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "DISC",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "UPIC",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "VPAY",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "ELEC",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MSTR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "JCB0",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "REPV",
+                    "format": "Exact4Text"
+                  }
+                ]
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "recurringFlag",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.paymentUseCase = RCFX | INST | RCOT",
+          "Commentaire": "To be interpreted RG EFFYIS",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryMode",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode",
+          "Commentaire": "",
+          "type": {
+            "CardDataEntryModeCodeset": {
+              "details": {
+                "isCodeSet": true,
+                "codeset": [
+                  {
+                    "data": "NOTS",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MAGS",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CCEC",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CCMD",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "ICCR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MANE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MAAR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "PVBS",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "COFT",
+                    "format": "Exact4Text"
+                  }
+                ]
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyentryModemagneticStripe",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode.MAGS",
+          "Commentaire": "see cardDataEntryModeCodeset",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryModeEMVChip",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode. [ ICCR | CHON ]",
+          "Commentaire": "see cardDataEntryModeCodeset",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryModeContactless",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode. [ CUCD | CUMD ]",
+          "Commentaire": "see cardDataEntryModeCodeset",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryModemanualEntry",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode.MANU",
+          "Commentaire": "see cardDataEntryModeCodeset",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryModeFallback",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardDataEntryMode. [ CHFM | CHFG ]",
+          "Commentaire": "see cardDataEntryModeCodeset",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyentryModeNFC",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Does not exit",
+          "Commentaire": "Wallet QR Code for example",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCode",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.pointOfServiceConditionCode",
+          "Commentaire": "",
+          "type": {
+            "ServiceConditionCodeCodeset": {
+              "details": {
+                "isCodeSet": true,
+                "codeset": [
+                  {
+                    "data": "STDR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CUNP",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "UTAR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MESU",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CPCA",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "TLDR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MTOR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CUIV",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "SUFR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "SERE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "CUTE",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "UTUR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "FLCO",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "MAOR",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "TLOR",
+                    "format": "Exact4Text"
+                  }
+                ]
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyPOSConditionCodeCardPresent",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardPresent = TRUE",
+          "Commentaire": "Not in POSConditionCode",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCodetransactionCondition",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.pointOfServiceConditionCode = STDR",
+          "Commentaire": "see ServiceConditionModeCodeSet",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCodePinVerification",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardholdeVerificationMethod & 38h <>0",
+          "Commentaire": "bitmap, see Tab CVM",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCodeSignatureAuthorization",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.cardholdeVerificationMethod & 04h <>0",
+          "Commentaire": "bitmap, see Tab CVM",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCodeOnlineAuthorization",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Response.authorizationCode not blank",
+          "Commentaire": "stand in or online to the Issuer : is it important ? (Effyis Response \"No\")\nEffyis RG : If Response.authorizationCode not blank is online Trx",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCodeOfflineAuthorization",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TVR or Response.authorizationCode not set and Response.responseCode = 00 [ Zx |Yx ]",
+          "Commentaire": "Effyis RG : Boolean not existing on the Acquirer processor : transco by P2S",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCode",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "merchant.PaymentCategory",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyPOSConditionCode",
+          "mandatory_optional": "O",
+          "responsibility": "P2S",
+          "iso20022_mapping": "_",
+          "Commentaire": "C'est à P2S de le déterminer (TransactionContext.Jurisdiction) avec le countryCode Cardholder/card Issuer, Acquirer/Merchant",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyEMVtagsService code",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.Track2EquivalentData obsfucated",
+          "Commentaire": "If blank : P2S determine the card product code from Scheme Range referential",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TechnologyEMVtagsTransactionSequenceCounter",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "eMV.randomNumber",
+          "Commentaire": "EMV 9F37",
+          "type": {
+            "Exact4HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 4 binary bytes (8 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){4}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsTerminal Type",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Terminal.terminalCategory",
+          "Commentaire": "EMV 9F35",
+          "type": {
+            "Exact2NumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a numeric string with an exact length of 2 digits.",
+                "type": "string",
+                "pattern": "[0-9]{2}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsTerminalCapabilities",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Terminal.terminalCapabilities",
+          "Commentaire": "EMV 9F33",
+          "type": {
+            "Exact3HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 3 binary bytes (6 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){3}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsIAC",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "eMV.issuerActionCodeDefault\neMV.issuerActionCodeOnline\neMV.issuerActionCodeDenial",
+          "Commentaire": "",
+          "type": {
+            "Exact5HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 5 binary bytes (10 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){5}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsAC",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "eMV.applicationCryptogram",
+          "Commentaire": "",
+          "type": {
+            "Exact8HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 8 binary bytes (16 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){8}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsCID",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "eMV.cryptogramInformationData",
+          "Commentaire": "",
+          "type": {
+            "Exact1HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 1 binary bytes (2 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){1}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsAIP",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "card.applicationInterchangeProfile",
+          "Commentaire": "",
+          "type": {
+            "Exact2HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with an exact length of 2 binary bytes (4 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){2}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TechnologyEMVtagsIAD",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "eMV.issuerApplicationData",
+          "Commentaire": "",
+          "type": {
+            "Max32HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a maximum length of 32 binary bytes (64 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){1,32}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureAuthenticationIndicator",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Verification.CardholderAuthenticationValueProcessingInfo",
+          "Commentaire": "1 character indicating issuer authentication of the eCom cryptogram. Verify whether this",
+          "type": {
+            "Exact1Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a string with an exact length of 1 character",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecure3DSVersion",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "ThreeDs.threeDsProtocolVersion",
+          "Commentaire": "",
+          "type": {
+            "ThreeDsProtocolVersionCodeset": {
+              "details": {
+                "isCodeSet": true,
+                "codeset": [
+                  {
+                    "data": "UNKW",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "3DS1",
+                    "format": "Exact4Text"
+                  },
+                  {
+                    "data": "3DS2",
+                    "format": "Exact4Text"
+                  }
+                ]
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureIssuerAuthenticationData",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.issuerAuthenticationData",
+          "Commentaire": "",
+          "type": {
+            "Min8Max16HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minimum length of 8 and maximum length of 16 binary bytes (16 to 32 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){8,16}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureAuthenticationResponse",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TreesDs.threeDsResultsCardHolderAuthentication",
+          "Commentaire": "This corresponds to 3DS.TransactionStatus (Y,N,A…)",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Technology3DSecureCAVV",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.cardholderAuthenticationValue",
+          "Commentaire": "Same data container",
+          "type": {
+            "Min4Max40HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minimum length of 4 and maximum length of 40 binary bytes (8 to 80 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){4,40}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureDSTransID",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.UUIDContainerValue ",
+          "Commentaire": "Either ACS or DS Transaction ID depending on UUIDContainerCategory",
+          "type": {
+            "Exact36Text": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "36 alphanumeric  and special characters",
+                "type": "string",
+                "pattern": "---"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureDeviceChannel",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Technology3DSecureAMID",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "AuthenticationMethodIndicator",
+          "Commentaire": "Tag 9F34",
+          "not_found_in_types": true
+        },
+        {
+          "field": "Technology3DSecureAAV",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.cardholderAuthenticationValue",
+          "Commentaire": "Same data container",
+          "type": {
+            "Min4Max40HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a minimum length of 4 and maximum length of 40 binary bytes (8 to 80 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){4,40}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "Technology3DSecureECI",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.ecommerceIndicator",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "xPayWalletWallet ID",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Wallet.walletId + wallet.walletNomenclature ",
+          "Commentaire": "Literal wallet ID and nomenclature indicates The scheme",
+          "not_found_in_types": true
+        },
+        {
+          "field": "xPayWalletTokenized PAN",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "xPayWalletDeviceId",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionContext.usedKernelID",
+          "Commentaire": "Partly",
+          "type": {
+            "Max8HexBinaryText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies a character string with a maximum length of 8 binary bytes (16 hexadecimal text characters)",
+                "type": "string",
+                "pattern": "([0-9A-F][0-9A-F]){1,8}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "xPayWalletTransactionToken",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Not Applicable",
+          "Commentaire": "OTP forbidden at rest. Not available.",
+          "not_found_in_types": true
+        },
+        {
+          "field": "xPayWalletWalletType",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "_",
+          "Commentaire": "",
+          "not_found_in_types": true
+        }
+      ]
+    },
+    {
+      "object": "TransactionResponse",
+      "fields": [
+        {
+          "field": "TransactionResponse.code",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Response.responseCode",
+          "Commentaire": "",
+          "type": {
+            "Max6AlphaNumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies an alphanumeric string with a minlength of 1 and maxlength of 6 digits.",
+                "type": "string",
+                "pattern": "[0-9A-Za-z]{1,6}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionResponse.amount",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "TransactionDetails.authorizedAmount",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionResponse.datetime",
+          "mandatory_optional": "O",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Response.responseDateTime",
+          "Commentaire": "",
+          "type": {
+            "ISODateTime": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "The dateTime is specified in the following form <YYYY-MM-DDThh:mm:ss>",
+                "type": "string",
+                "pattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?"
+              }
+            }
+          },
+          "not_found_in_types": false
+        },
+        {
+          "field": "TransactionResponse.reason",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Response.responseCode = 00 | 10",
+          "Commentaire": "",
+          "not_found_in_types": true
+        },
+        {
+          "field": "TransactionResponse.authorizationId",
+          "mandatory_optional": "M",
+          "responsibility": "Estreem",
+          "iso20022_mapping": "Response.authorisationCode",
+          "Commentaire": "",
+          "type": {
+            "Max6AlphaNumericText": {
+              "details": {
+                "isCodeSet": false,
+                "definition": "Specifies an alphanumeric string with a minlength of 1 and maxlength of 6 digits.",
+                "type": "string",
+                "pattern": "[0-9A-Za-z]{1,6}"
+              }
+            }
+          },
+          "not_found_in_types": false
+        }
+      ]
+    },
+    {
+      "object": "Pricing",
+      "fields": [
+        {
+          "field": "transactionQualificationTags",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Derived at runtime by rules engine",
+          "Commentaire": "TransactionContext.Traceability.blob",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionQualifiedLabel",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Generated for analytics/reporting and labeling",
+          "Commentaire": "TransactionContext.transactionDesignation",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionCostCode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Output field for pricing engine",
+          "Commentaire": "TransactionContext.Traceability.blob",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionJurisdiction",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Computed field for legal, cost, and reporting compliance",
+          "Commentaire": "TransactionContext.jurisdiction",
+          "not_found_in_types": true
+        },
+        {
+          "field": "cardSchemeCode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input (transaction), referential (scheme list), used in cost and context",
+          "Commentaire": "TransactionDetails.cardBrandApplied",
+          "not_found_in_types": true
+        },
+        {
+          "field": "coSchemeCode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input (BIN table), optional referential",
+          "Commentaire": "TransactionContext.qualifiedData.coBrandededScheme",
+          "not_found_in_types": true
+        },
+        {
+          "field": "amountQualificationLevel",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Derived from input amount and cost logic",
+          "Commentaire": "TransactionContext.qualifiedData.amountQualified",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionCategoryCode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input + referential, used in qualification + cost code",
+          "Commentaire": "TransactionContext.Traceability.blob",
+          "not_found_in_types": true
+        },
+        {
+          "field": "transactionChannel",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input (terminalType + MCC + ECI), used in qualification logic",
+          "Commentaire": "TransactionContext.qualifiedData.channel",
+          "not_found_in_types": true
+        },
+        {
+          "field": "cardDataCaptureTechnology",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Derived from POS Entry Mode, used in pricing/routing rules",
+          "Commentaire": "TransactionContext.qualifiedData.technology",
+          "not_found_in_types": true
+        },
+        {
+          "field": "authenticationMethod",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input field used in fraud scoring & compliance + pricing",
+          "Commentaire": "TransactionContext.qualifiedData.sca",
+          "not_found_in_types": true
+        },
+        {
+          "field": "cardProductType",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Input (BIN referential), key for cost qualification",
+          "Commentaire": "TransactionContext.qualifiedData.cardProductType",
+          "not_found_in_types": true
+        },
+        {
+          "field": "merchantCountryGroup",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Used for jurisdiction tagging, cost banding",
+          "Commentaire": "TransactionContext.qualifiedData.merchantRegion",
+          "not_found_in_types": true
+        },
+        {
+          "field": "cardholderCountryGroup",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "BIN-based enrichment, used for compliance and fee conditions",
+          "Commentaire": "TransactionContext.qualifiedData.cardholderRegion",
+          "not_found_in_types": true
+        },
+        {
+          "field": "acquirerCountryGroup",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Referenced from BIN or contract setup",
+          "Commentaire": "TransactionContext.qualifiedData.acquirerRegion",
+          "not_found_in_types": true
+        },
+        {
+          "field": "issuerCountryGroup",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Used for intra/inter-regional pricing",
+          "Commentaire": "TransactionContext.qualifiedData.cardIssuerRegion",
+          "not_found_in_types": true
+        },
+        {
+          "field": "schemeSettlementServiceCode",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Derived from scheme code + ruleset",
+          "Commentaire": "TransactionContext.settlementService",
+          "not_found_in_types": true
+        },
+        {
+          "field": "expectedSettlementDate",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Output of rules engine",
+          "Commentaire": "TransactionContext.settlementDate",
+          "not_found_in_types": true
+        },
+        {
+          "field": "expectedClearingDate",
+          "mandatory_optional": "M",
+          "responsibility": "P2S",
+          "iso20022_mapping": "Output for reconciliation + fee processing",
+          "Commentaire": "TransactionContext.clearingDate",
+          "not_found_in_types": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "type": "record",
+  "name": "P2SInput",
+  "namespace": "com.p2s.input",
+  "fields": [
+    {
+      "name": "acceptor",
+      "type": {
+        "type": "record",
+        "name": "Acceptor",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "doc": "Unique ID of the merchant accepting the transaction"
+          },
+          {
+            "name": "subId",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Sub-merchant ID, used when there are multiple merchants under a single account"
+          },
+          {
+            "name": "terminalId",
+            "type": "string",
+            "doc": "ID of the terminal where the transaction was made"
+          },
+          {
+            "name": "merchantCategoryCode",
+            "type": "string",
+            "doc": "Merchant category code indicating the type of merchant (e.g., retail, restaurant)"
+          },
+          {
+            "name": "merchantName",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The name of the merchant"
+          },
+          {
+            "name": "merchantCity",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The city where the merchant is located"
+          },
+          {
+            "name": "merchantCountry",
+            "type": "string",
+            "doc": "The country where the merchant is located"
+          }
+        ]
+      }
+    },
+    {
+      "name": "acquirer",
+      "type": {
+        "type": "record",
+        "name": "Acquirer",
+        "fields": [
+          {
+            "name": "acquiringInstitutionId",
+            "type": "string",
+            "doc": "Bank ID of acquirer"
+          },
+          {
+            "name": "acquirerBin",
+            "type": "string",
+            "doc": "Bank Identification Number"
+          },
+          {
+            "name": "acquirerCountry",
+            "type": "string",
+            "doc": "Acquirer Country"
+          }
+        ]
+      }
+    },
+    {
+      "name": "card",
+      "type": {
+        "type": "record",
+        "name": "Card",
+        "fields": [
+          {
+            "name": "issuerBIN",
+            "type": "string",
+            "doc": "Issuer Bank Identification Number for detecting card type, region, and rules"
+          }
+        ]
+      }
+    },
+    {
+      "name": "chargeback",
+      "type": ["null", {
+        "type": "record",
+        "name": "Chargeback",
+        "fields": [
+          {
+            "name": "idChargeback",
+            "type": "string",
+            "doc": "Chargeback transaction id"
+          },
+          {
+            "name": "originalId",
+            "type": "string",
+            "doc": "Original transaction Id"
+          },
+          {
+            "name": "representmentReasonCode",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The reason for the representation"
+          }
+        ]
+      }],
+      "default": null
+    },
+    {
+      "name": "clearing",
+      "type": {
+        "type": "record",
+        "name": "Clearing",
+        "fields": [
+          {
+            "name": "idPreClearing",
+            "type": "string",
+            "doc": "Unique identifier for the clearing entry"
+          },
+          {
+            "name": "settlementAmount",
+            "type": "string",
+            "doc": "The currency of the settlement amount"
+          },
+          {
+            "name": "dcc",
+            "type": ["null", {
+              "type": "record",
+              "name": "DCC",
+              "fields": [
+                {
+                  "name": "dccCurrency",
+                  "type": ["null", "string"],
+                  "default": null,
+                  "doc": "The DCC currency used in the transaction"
+                },
+                {
+                  "name": "dccMarkup",
+                  "type": ["null", "string"],
+                  "default": null,
+                  "doc": "The markup added to the DCC transaction"
+                }
+              ]
+            }],
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "paymentInstrument",
+      "type": {
+        "type": "record",
+        "name": "PaymentInstrument",
+        "fields": [
+          {
+            "name": "paymentInstrumentId",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Unique identifier for the payment instrument"
+          },
+          {
+            "name": "maskedPan",
+            "type": "string",
+            "doc": "The masked (partially obfuscated) PAN of the card used for the transaction"
+          },
+          {
+            "name": "sequence",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Sequence number to identify the card usage instance (e.g., recurring payments)"
+          },
+          {
+            "name": "expiryDate",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The expiration date of the card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "reversals",
+      "type": ["null", {
+        "type": "record",
+        "name": "Reversals",
+        "fields": [
+          {
+            "name": "reversalType",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Reversal type (Partial/Total)"
+          },
+          {
+            "name": "reversalReason",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Reason for reversal"
+          },
+          {
+            "name": "reversalAmount",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Reversed amount"
+          }
+        ]
+      }],
+      "default": null
+    },
+    {
+      "name": "settlement",
+      "type": ["null", {
+        "type": "record",
+        "name": "Settlement",
+        "fields": [
+          {
+            "name": "settlementNetwork",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The payment network used in the settlement (e.g., Visa, Mastercard)"
+          }
+        ]
+      }],
+      "default": null
+    },
+    {
+      "name": "transaction",
+      "type": {
+        "type": "record",
+        "name": "Transaction",
+        "fields": [
+          {
+            "name": "transactionType",
+            "type": "string",
+            "doc": "Transaction type (Purchase, Load, etc.)"
+          },
+          {
+            "name": "transactionExternalId",
+            "type": "string",
+            "doc": "Id sent by the processor"
+          },
+          {
+            "name": "transactionCountryCode",
+            "type": "string",
+            "doc": "Country code of the transaction"
+          },
+          {
+            "name": "transactionStatus",
+            "type": "string",
+            "doc": "Lifecycle of the transaction"
+          },
+          {
+            "name": "transactionAmount",
+            "type": "string",
+            "doc": "Amount based on transaction status"
+          },
+          {
+            "name": "transactionCurrency",
+            "type": "string",
+            "doc": "Currency of amount (ISO4217 or numeric)"
+          },
+          {
+            "name": "transactionAdditionalAmount",
+            "type": "string",
+            "doc": "Additional Amount, Field 54 ISO8583"
+          }
+        ]
+      }
+    },
+    {
+      "name": "transactionRequest",
+      "type": {
+        "type": "record",
+        "name": "TransactionRequest",
+        "fields": [
+          {
+            "name": "xPayWalletAuthMethod",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Authentication method used in the wallet transaction (e.g., biometric, PIN)"
+          },
+          {
+            "name": "transactionRequestDatetime",
+            "type": "string",
+            "doc": "Acceptor local time"
+          },
+          {
+            "name": "transactionRequestBillingAmount",
+            "type": "string",
+            "doc": "Amount billed in issuer currency"
+          },
+          {
+            "name": "transactionRequestBillingCurrency",
+            "type": "string",
+            "doc": "Billing currency (ISO4217)"
+          },
+          {
+            "name": "transactionRequestStan",
+            "type": "string",
+            "doc": "Systems Trace Audit Number"
+          },
+          {
+            "name": "transactionRequestRetrievalReferenceNumber",
+            "type": "string",
+            "doc": "Retrieval Reference Number"
+          },
+          {
+            "name": "transactionRequestTransmissionDatetime",
+            "type": "string",
+            "doc": "UTC transmission datetime"
+          },
+          {
+            "name": "transactionRequestBillingRate",
+            "type": "string",
+            "doc": "Conversion rate"
+          },
+          {
+            "name": "transactionRequestScheme",
+            "type": "string",
+            "doc": "Scheme processed the transaction"
+          },
+          {
+            "name": "recurringFlag",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Recurring payment?"
+          },
+          {
+            "name": "technology",
+            "type": {
+              "type": "record",
+              "name": "Technology",
+              "fields": [
+                {
+                  "name": "entryMode",
+                  "type": {
+                    "type": "record",
+                    "name": "EntryMode",
+                    "fields": [
+                      {
+                        "name": "magneticStripe",
+                        "type": "boolean",
+                        "doc": "Indicates if the card was swiped (magnetic stripe entry)"
+                      },
+                      {
+                        "name": "emvChip",
+                        "type": "boolean",
+                        "doc": "Indicates if the card was inserted for EMV chip-based processing"
+                      },
+                      {
+                        "name": "contactless",
+                        "type": "boolean",
+                        "doc": "Indicates if the card was used for a contactless transaction (NFC)"
+                      },
+                      {
+                        "name": "manualEntry",
+                        "type": "boolean",
+                        "doc": "Indicates if the card details were manually entered"
+                      },
+                      {
+                        "name": "fallback",
+                        "type": "boolean",
+                        "doc": "Indicates if fallback processing was used (in case of EMV failure)"
+                      },
+                      {
+                        "name": "nfc",
+                        "type": ["null", "boolean"],
+                        "default": null,
+                        "doc": "Indicates if NFC was used for the transaction"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "posConditionCode",
+                  "type": {
+                    "type": "record",
+                    "name": "POSConditionCode",
+                    "fields": [
+                      {
+                        "name": "cardPresent",
+                        "type": "boolean",
+                        "doc": "Indicates whether the card was physically present during the transaction"
+                      },
+                      {
+                        "name": "transactionCondition",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Condition of the transaction (e.g., standard, refund)"
+                      },
+                      {
+                        "name": "pinVerification",
+                        "type": "boolean",
+                        "doc": "Indicates if PIN verification was performed"
+                      },
+                      {
+                        "name": "signatureAuthorization",
+                        "type": ["null", "boolean"],
+                        "default": null,
+                        "doc": "Indicates if signature authorization was used"
+                      },
+                      {
+                        "name": "onlineAuthorization",
+                        "type": "boolean",
+                        "doc": "Indicates whether online authorization was performed"
+                      },
+                      {
+                        "name": "offlineAuthorization",
+                        "type": ["null", "boolean"],
+                        "default": null,
+                        "doc": "Indicates whether offline authorization was used"
+                      },
+                      {
+                        "name": "channel",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Indicates whether the transaction is face-to-face or remote (non-face-to-face)"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "emvTags",
+                  "type": ["null", {
+                    "type": "record",
+                    "name": "EMVTags",
+                    "fields": [
+                      {
+                        "name": "serviceCode",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Specifies the card service type (e.g., debit, credit)"
+                      },
+                      {
+                        "name": "transactionSequenceCounter",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "A unique sequence number for the transaction"
+                      },
+                      {
+                        "name": "terminalType",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Type of terminal used to process the transaction (e.g., POS, ATM)"
+                      },
+                      {
+                        "name": "terminalCapabilities",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Defines terminal capabilities (e.g., EMV, NFC)"
+                      },
+                      {
+                        "name": "iac",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Issuer Action Code (indicates transaction outcome)"
+                      },
+                      {
+                        "name": "ac",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Cryptogram used in authorization (ARQC/TC/AAC)"
+                      },
+                      {
+                        "name": "cid",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Cryptogram Identifier, indicates the type of cryptogram"
+                      },
+                      {
+                        "name": "aip",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Application Interchange Profile, defines card capabilities"
+                      },
+                      {
+                        "name": "iad",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Issuer Application Data, used for issuer-specific risk management"
+                      }
+                    ]
+                  }],
+                  "default": null
+                },
+                {
+                  "name": "threeDS",
+                  "type": ["null", {
+                    "type": "record",
+                    "name": "ThreeDS",
+                    "fields": [
+                      {
+                        "name": "authenticationIndicator",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Indicates the result of 3D Secure authentication (e.g., successful, failed)"
+                      },
+                      {
+                        "name": "threeDSVersion",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Specifies the version of 3D Secure used"
+                      },
+                      {
+                        "name": "issuerAuthenticationData",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Data used by the issuer for authentication"
+                      },
+                      {
+                        "name": "authenticationResponse",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Response from the issuer regarding authentication outcome"
+                      },
+                      {
+                        "name": "cavv",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Cardholder Authentication Verification Value (used in 3D Secure)"
+                      },
+                      {
+                        "name": "dsTransID",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "3D Secure 2 transaction identifier"
+                      },
+                      {
+                        "name": "amid",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Authentication Method Indicator used in 3D Secure (e.g., biometric, PIN)"
+                      },
+                      {
+                        "name": "aav",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Mastercard's equivalent of CAVV used in 3D Secure for cardholder authentication"
+                      },
+                      {
+                        "name": "eci",
+                        "type": ["null", "string"],
+                        "default": null,
+                        "doc": "Electronic Commerce Indicator used in 3D Secure transactions"
+                      }
+                    ]
+                  }],
+                  "default": null
+                }
+              ]
+            }
+          },
+          {
+            "name": "xPayWallet",
+            "type": ["null", {
+              "type": "record",
+              "name": "XPayWallet",
+              "fields": [
+                {
+                  "name": "walletId",
+                  "type": ["null", "string"],
+                  "default": null,
+                  "doc": "Unique identifier for the wallet user in the xPay system"
+                },
+                {
+                  "name": "deviceId",
+                  "type": ["null", "string"],
+                  "default": null,
+                  "doc": "Identifier for the mobile device used for the transaction"
+                }
+              ]
+            }],
+            "default": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "transactionResponse",
+      "type": {
+        "type": "record",
+        "name": "TransactionResponse",
+        "fields": [
+          {
+            "name": "code",
+            "type": "string",
+            "doc": "The approval code from the issuer"
+          },
+          {
+            "name": "amount",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "The amount authorized by the issuer"
+          },
+          {
+            "name": "datetime",
+            "type": ["null", "string"],
+            "default": null,
+            "doc": "Response timestamp from the issuer"
+          },
+          {
+            "name": "reason",
+            "type": "string",
+            "doc": "Reason for rejection if the transaction was declined"
+          },
+          {
+            "name": "authorizationId",
+            "type": "string",
+            "doc": "The authorization number returned by the issuer"
+          }
+        ]
+      }
+    }
+  ]
+}
