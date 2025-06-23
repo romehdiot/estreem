@@ -4,6 +4,29 @@ import re
 import sys
 from typing import Any, Dict, List
 
+
+def _generate_from_pattern(pattern: str) -> str:
+    """Generate a numeric sample matching a simple regex pattern."""
+    # Handle patterns like [0-9]{1,25}(\.?[0-9]{0,13})?
+    m_range = re.search(r'\{(\d+),(\d+)\}', pattern)
+    if m_range:
+        min_len, max_len = int(m_range.group(1)), int(m_range.group(2))
+    else:
+        m_fixed = re.search(r'\{(\d+)\}', pattern)
+        if m_fixed:
+            min_len = max_len = int(m_fixed.group(1))
+        else:
+            min_len = max_len = 1
+
+    int_len = random.randint(min_len, max_len)
+    result = ''.join(str(random.randint(0, 9)) for _ in range(int_len))
+    m_decimal = re.search(r'\\\.\?\[0-9\]\{0,(\d+)\}\)?', pattern)
+    if m_decimal:
+        dec_len = random.randint(0, int(m_decimal.group(1)))
+        if dec_len > 0:
+            result += '.' + ''.join(str(random.randint(0, 9)) for _ in range(dec_len))
+    return result
+
 def sample_from_details(field: Dict[str, Any]) -> Any:
     details = field.get('schema_details')
     if details:
@@ -12,12 +35,10 @@ def sample_from_details(field: Dict[str, Any]) -> Any:
             typ_name, info = next(iter(type_info.items()))
             det = info.get('details', {})
             if det.get('isCodeSet') and 'codeset' in det:
-                return det['codeset'][0]['data']
+                return random.choice(det['codeset'])['data']
             pattern = det.get('pattern')
-            if pattern and pattern.startswith('['):
-                m = re.search(r'{(\d+)', pattern)
-                length = int(m.group(1)) if m else 1
-                return ''.join(str(random.randint(0,9)) for _ in range(length))
+            if pattern:
+                return _generate_from_pattern(pattern)
             if det.get('type') == 'string':
                 return 'sample'
     avro_type = field.get('type')
